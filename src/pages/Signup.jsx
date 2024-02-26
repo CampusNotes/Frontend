@@ -7,6 +7,7 @@ import {
   } from "@material-tailwind/react";
   import { Footer, Navbarcomponent } from "../components";
   import { NavLink } from "react-router-dom";
+  import { useState } from "react";
   
   function Signup() {
 
@@ -73,7 +74,7 @@ import {
                   onChange={(e)=>setconfirmpassword(e.target.value)}
                 />
               </div>
-              <Checkbox
+              {/* <Checkbox
                 label={
                   <Typography
                     variant="small"
@@ -90,7 +91,7 @@ import {
                   </Typography>
                 }
                 containerProps={{ className: "-ml-2.5" }}
-              />
+              /> */}
               <Button onClick={handleSubmit} className="mt-6 bg-purple-300 text-white hover:bg-purple-100 hover:text-black" fullWidth>
                 logi in
               </Button>
