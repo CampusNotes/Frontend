@@ -6,15 +6,15 @@ import Footer from '../components/Footer';
 const Dashboard = () => {
     return (
         <div className='w-full h-screen'>
-            <Navbarcomponent/>
+            <Navbarcomponent />
 
-            <div className=' w-full h-screen px-10 mt-8 flex '>
-            
-            <Sidebar />
+            <div className='container mx-auto py-11 flex '>
 
-            <div className=' w-auto h-full'>
-                <h1>Inside data</h1>
-            </div>
+                <Sidebar />
+
+                <div className=' w-auto h-full'>
+                    <h1>Inside data</h1>
+                </div>
 
             </div>
 
