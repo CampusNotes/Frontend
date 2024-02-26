@@ -56,7 +56,7 @@ export default function Navbarcomponent() {
   }, []);
 
   return (
-    <Navbar className="mx-auto max-w-screen-2xl px-4 py-2">
+    <Navbar className="mx-auto max-w-screen-2xl px-4 py-2 bg-opacity-60 backdrop-blur-md">
       <div className="flex items-center justify-between text-blue-gray-900">
         <div className="flex items-center justify-center gap-1">
           <div className="w-7 aspect-square">

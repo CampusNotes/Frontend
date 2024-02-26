@@ -1,5 +1,5 @@
 import withMT from "@material-tailwind/react/utils/withMT"
-
+import colors from 'tailwindcss/colors'
 /** @type {import('tailwindcss').Config} */
 export default withMT({
   content: [
@@ -8,6 +8,10 @@ export default withMT({
   ],
   theme: {
     extend: {
+      colors: {
+        ...colors,
+
+      },
       animation: {
         blob_animate: 'blob 7s infinite'
       },
