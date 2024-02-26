@@ -1,5 +1,4 @@
 import {
-<<<<<<< HEAD
   Card,
   Input,
   Checkbox,
@@ -9,50 +8,19 @@ import {
 import { Footer, Navbarcomponent } from "../components";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-=======
-    Card,
-    Input,
-    Checkbox,
-    Button,
-    Typography,
-  } from "@material-tailwind/react";
-  import { Footer, Navbarcomponent } from "../components";
-  import { NavLink } from "react-router-dom";
-  import { useState } from "react";
-  
-  function Signup() {
->>>>>>> f2c6d6897ed6d5286bd33686c45a9554b07c123b
 
 function Signup() {
 
-  const [email, setemail] = useState('');
-  const [password, setpassword] = useState('');
-  const [confirmpassword, setconfirmpassword] = useState('');
+  function Signup() {
 
-  const handleSubmit = () => {
+    const [email, setemail] = useState('');
+    const [password, setpassword] = useState('');
+    const [confirmpassword, setconfirmpassword] = useState('');
 
-  }
+    const handleSubmit = () => {
 
-<<<<<<< HEAD
-  return (
-    <>
-      <div className="w-full bg-purple-50 pt-3 sticky top-0 z-40">
-        <Navbarcomponent />
-      </div>
-      <div className="w-full flex items-center justify-center pt-9 pb-9 bg-purple-50">
-        <Card color="transparent" shadow={false} className="bg-white p-8 z-0">
-          <Typography variant="h4" color="blue-gray">
-            Sign In
-          </Typography>
-          <Typography color="gray" className="mt-1 font-normal">
-            Nice to meet you! Enter your details to login.
-          </Typography>
-          <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
-            <div className="mb-1 flex flex-col gap-6">
+    }
 
-              <Typography variant="h6" color="blue-gray" className="-mb-3">
-                Your Email
-=======
     return (
       <>
         <div className="w-full bg-purple-50 pt-3 sticky top-0 z-40">
@@ -68,7 +36,7 @@ function Signup() {
             </Typography>
             <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
               <div className="mb-1 flex flex-col gap-6">
-  
+
                 <Typography variant="h6" color="blue-gray" className="-mb-3">
                   Your Email
                 </Typography>
@@ -79,7 +47,7 @@ function Signup() {
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
-                  onChange={(e)=>setemail(e.target.value)}
+                  onChange={(e) => setemail(e.target.value)}
                 />
                 <Typography variant="h6" color="blue-gray" className="-mb-3">
                   Password
@@ -92,7 +60,7 @@ function Signup() {
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
-                  onChange={(e)=>setpassword(e.target.value)}
+                  onChange={(e) => setpassword(e.target.value)}
                 />
                 <Typography variant="h6" color="blue-gray" className="-mb-3">
                   Confirm-Password
@@ -105,7 +73,7 @@ function Signup() {
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
-                  onChange={(e)=>setconfirmpassword(e.target.value)}
+                  onChange={(e) => setconfirmpassword(e.target.value)}
                 />
               </div>
               {/* <Checkbox
@@ -134,7 +102,6 @@ function Signup() {
                 <NavLink to='/' className="font-semibold text-black">
                   Sign In
                 </NavLink>
->>>>>>> f2c6d6897ed6d5286bd33686c45a9554b07c123b
               </Typography>
               <Input
                 size="lg"
@@ -201,12 +168,12 @@ function Signup() {
             </Typography>
           </form>
         </Card>
-      </div>
-      <div className="w-full container mx-auto">
-        <Footer />
-      </div>
+      </div >
+        <div className="w-full container mx-auto">
+          <Footer />
+        </div>
     </>
   )
-}
+  }
 
-export default Signup
+  export default Signup
