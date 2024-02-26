@@ -36,7 +36,7 @@ export default function Sidebar() {
         </Typography>
       </div>
       <List>
-        <Accordion
+        {/* <Accordion
           open={open === 1}
           icon={
             <ChevronDownIcon
@@ -51,7 +51,7 @@ export default function Sidebar() {
                 <PresentationChartBarIcon className="h-5 w-5" />
               </ListItemPrefix>
               <Typography color="blue-gray" className="mr-auto font-normal">
-                Dashboard
+                Home
               </Typography>
             </AccordionHeader>
           </ListItem>
@@ -113,8 +113,8 @@ export default function Sidebar() {
               </ListItem>
             </List>
           </AccordionBody>
-        </Accordion>
-        <ListItem>
+        </Accordion> */}
+        {/* <ListItem>
           <ListItemPrefix>
             <InboxIcon className="h-5 w-5" />
           </ListItemPrefix>
@@ -122,24 +122,24 @@ export default function Sidebar() {
           <ListItemSuffix>
             <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
           </ListItemSuffix>
-        </ListItem>
+        </ListItem> */}
         <ListItem>
           <ListItemPrefix>
             <UserCircleIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Profile
+          Home
         </ListItem>
         <ListItem>
           <ListItemPrefix>
             <Cog6ToothIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Settings
+          Liabrary
         </ListItem>
         <ListItem>
           <ListItemPrefix>
             <PowerIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Log Out
+          Opload
         </ListItem>
       </List>
     </Card>
