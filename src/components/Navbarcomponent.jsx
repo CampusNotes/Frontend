@@ -74,12 +74,16 @@ export default function Navbarcomponent() {
           <NavList />
         </div>
         <div className="hidden gap-2 lg:flex">
-          <Button variant="text" size="sm" color="blue-gray">
-            <NavLink to='/login'>Log In</NavLink>
-          </Button>
-          <Button size="sm" className="bg-purple-300 text-white hover:bg-purple-100 hover:text-black">
-            Sign In
-          </Button>
+          <NavLink to='/login'>
+            <Button variant="text" size="sm" color="blue-gray">
+              Log In
+            </Button>
+          </NavLink>
+          <NavLink to='/signup'>
+            <Button size="sm" className="bg-purple-300 text-white hover:bg-purple-100 hover:text-black">
+              Sign In
+            </Button>
+          </NavLink>
         </div>
         <IconButton
           variant="text"

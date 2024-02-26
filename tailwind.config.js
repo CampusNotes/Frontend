@@ -9,15 +9,14 @@ export default withMT({
   theme: {
     extend: {
       animation: {
-        blob_animate: 'blob 8s ease-in-out infinite'
+        blob_animate: 'blob 7s infinite'
       },
       keyframes: {
         blob: {
-          '0%': { transform: 'scale(1) translateX(0%) translateY(0%)' },
-          '25%': { transform: 'scale(1.3) translateX(20%) translateY(20%)' },
-          '50%': { transform: 'scale(1.9) translateX(-20%) translateY(-20%)' },
-          '75%': { transform: 'scale(1.3) translateX(10%) translateY(10%)' },
-          '100%': { transform: 'scale(1) translateX(0%) translateY(0%)' }
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(30px, -50px) scale(1.2)' },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+          '100%': { transform: 'translate(0px, 0px) scale(1)' }
         }
       }
     },

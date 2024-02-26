@@ -9,9 +9,9 @@ function Home() {
       <div className="w-full pt-6 sticky top-0">
         <Navbarcomponent />
       </div>
-      <div className="absolute left-35 top-[20rem] rounded-full w-72 h-72 bg-purple-500 -z-50 filter blur-3xl opacity-50 animate-blob_animate">
+      <div className="absolute left-35 top-[20rem] rounded-full w-72 h-72 bg-purple-500 -z-50 filter blur-3xl opacity-50 animate-blob_animate animation-delay-2000">
       </div>
-      <div className="absolute left-64 top-[12rem] rounded-full w-80 h-80 bg-pink-400 -z-50 filter blur-3xl opacity-60 animate-blob_animate">
+      <div className="absolute left-64 top-[12rem] rounded-full w-80 h-80 bg-pink-400 -z-50 filter blur-3xl opacity-60 animate-blob_animate animation-delay-4000">
       </div>
       <div className="pb-12">
         <section className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
