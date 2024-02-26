@@ -7,8 +7,19 @@ import {
 } from "@material-tailwind/react";
 import { Footer, Navbarcomponent } from "../components";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 function Login() {
+
+  const[email,setemail]= useState('');
+  const[password,setpassword]=useState('');
+
+  const handleSubmit=()=>{
+
+    
+
+  }
+
   return (
     <>
       <div className="w-full bg-purple-50 pt-3 sticky top-0 z-40">
@@ -35,6 +46,8 @@ function Login() {
                 labelProps={{
                   className: "before:content-none after:content-none",
                 }}
+
+                onChange={(e)=>setemail(e.target.value)}
               />
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Password
@@ -47,9 +60,10 @@ function Login() {
                 labelProps={{
                   className: "before:content-none after:content-none",
                 }}
+                onChange={(e)=>setpassword(e.target.value)}
               />
             </div>
-            <Checkbox
+            {/* <Checkbox
               label={
                 <Typography
                   variant="small"
@@ -66,13 +80,13 @@ function Login() {
                 </Typography>
               }
               containerProps={{ className: "-ml-2.5" }}
-            />
-            <Button className="mt-6 bg-purple-300 text-white hover:bg-purple-100 hover:text-black" fullWidth>
+            /> */}
+            <Button onClick={handleSubmit} className="mt-6 bg-purple-300 text-white hover:bg-purple-100 hover:text-black" fullWidth>
               logi in
             </Button>
             <Typography color="gray" className="mt-4 text-center font-normal">
               Don&apos;t have an account?{" "}
-              <NavLink to='/' className="font-semibold text-black">
+              <NavLink to='/signup' className="font-semibold text-black">
                 Sign In
               </NavLink>
             </Typography>
