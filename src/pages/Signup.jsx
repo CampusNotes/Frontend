@@ -16,14 +16,19 @@ import axios from "axios";
 
 function Signup() {
 
+  const [username, setUsername] = useState('')
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const [confirmpassword, setconfirmpassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit =  async () => { 
+  const handleSubmit = async () => {
 
-    
+    if (username === "") {
+      alert("Enter user name")
+      return;
+    }
+
 
     if (email === "") {
       alert("Email is required");
@@ -44,13 +49,13 @@ function Signup() {
       return;
     }
 
-    
+
 
     const data = {
-      
+
       email: email,
       password: password,
-      
+
     };
 
     console.log(data);
@@ -89,7 +94,18 @@ function Signup() {
           </Typography>
           <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
             <div className="mb-1 flex flex-col gap-6">
-
+              <Typography variant="h6" color="blue-gray" className="-mb-3">
+                Your Username
+              </Typography>
+              <Input
+                size="lg"
+                placeholder="abc"
+                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+                onChange={(e) => setUsername(e.target.value)}
+              />
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Your Email
               </Typography>
