@@ -9,6 +9,9 @@ import { Footer, Navbarcomponent } from "../components";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 
 function Signup() {
@@ -16,8 +19,60 @@ function Signup() {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const [confirmpassword, setconfirmpassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = () => { }
+  const handleSubmit =  async () => { 
+
+    
+
+    if (email === "") {
+      alert("Email is required");
+      return;
+    }
+
+    if (password === "") {
+      alert("Password is required");
+      return;
+    }
+    if (confirmpassword === "") {
+      alert("Password is required");
+      return;
+    }
+
+    if (password !== confirmpassword) {
+      alert("Password and confirmpassword should be same");
+      return;
+    }
+
+    
+
+    const data = {
+      
+      email: email,
+      password: password,
+      
+    };
+
+    console.log(data);
+
+    try {
+      const response = await axios.post("/api/v1/auth/register", data);
+      console.log(response);
+      if (response.status === 200) {
+        alert("Registration Successful");
+        navigate("/login");
+      }
+      if (response.status === 400) {
+        alert("Registration Failed");
+      }
+      if (response.status === 500) {
+        alert("Error Occured");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
+  }
 
   return (
     <>

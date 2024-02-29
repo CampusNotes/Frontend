@@ -8,17 +8,55 @@ import {
 import { Footer, Navbarcomponent } from "../components";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
 
   const[email,setemail]= useState('');
   const[password,setpassword]=useState('');
+  const navigate = useNavigate();
 
 
-  const handleSubmit=()=>{
+  const handleSubmit= async()=>{
 
-    
-    
+    if (email === "") {
+      alert("Email is required");
+      return;
+    }
+
+    if (password === "") {
+      alert("Password is required");
+      return;
+    }
+    const data = {
+      email: email,
+      password: password,
+    };
+
+    try {
+      const response = await axios.post("/api/v1/auth/login", data);
+
+      console.log(response);
+
+      if (response.status === 200) {
+        alert("Login Successful");
+        localStorage.setItem('auth_token', response.data.auth_token)
+        navigate("/dashboard");
+      }
+
+      if (response.status === 400) {
+        alert("Login Failed");
+      }
+      if (response.status === 500) {
+        alert("Error Occured");
+      }
+
+    } catch (err) {
+      console.log(err);
+    }
+
+
 
   }
 
