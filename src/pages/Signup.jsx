@@ -52,7 +52,7 @@ function Signup() {
 
 
     const data = {
-
+      username: username,
       email: email,
       password: password,
 
@@ -61,11 +61,15 @@ function Signup() {
     console.log(data);
 
     try {
-      const response = await axios.post("/api/v1/auth/register", data);
+      const response = await axios.post("/api/auth/register", data);
       console.log(response);
-      if (response.status === 200) {
+      if (response.status === 201) {
         alert("Registration Successful");
-        navigate("/login");
+        const access_token = response.data.data.access_token;
+        const refresh_token = response.data.data.refresh_token;
+        localStorage.setItem('access_token', access_token)
+        localStorage.setItem('refresh_token', refresh_token)
+        navigate("/dashboard");
       }
       if (response.status === 400) {
         alert("Registration Failed");
@@ -145,24 +149,6 @@ function Signup() {
                 onChange={(e) => setconfirmpassword(e.target.value)}
               />
             </div>
-            <Checkbox
-              label={
-                <Typography
-                  variant="small"
-                  color="gray"
-                  className="flex items-center font-normal"
-                >
-                  I agree the
-                  <a
-                    href="#"
-                    className="font-medium transition-colors hover:text-gray-900"
-                  >
-                    &nbsp;Terms and Conditions
-                  </a>
-                </Typography>
-              }
-              containerProps={{ className: "-ml-2.5" }}
-            />
             <Button onClick={handleSubmit} className="mt-6 bg-purple-300 text-white hover:bg-purple-100 hover:text-black" fullWidth>
               Sign In
             </Button>
