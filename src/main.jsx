@@ -4,6 +4,10 @@ import App from './App.jsx'
 import './index.css'
 import { ThemeProvider } from "@material-tailwind/react";
 import { BrowserRouter } from 'react-router-dom';
+import axios from 'axios';
+
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <React.StrictMode>

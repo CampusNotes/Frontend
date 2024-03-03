@@ -16,14 +16,19 @@ import axios from "axios";
 
 function Signup() {
 
+  const [username, setUsername] = useState('')
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const [confirmpassword, setconfirmpassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit =  async () => { 
+  const handleSubmit = async () => {
 
-    
+    if (username === "") {
+      alert("Enter user name")
+      return;
+    }
+
 
     if (email === "") {
       alert("Email is required");
@@ -44,23 +49,27 @@ function Signup() {
       return;
     }
 
-    
+
 
     const data = {
-      
+      username: username,
       email: email,
       password: password,
-      
+
     };
 
     console.log(data);
 
     try {
-      const response = await axios.post("/api/v1/auth/register", data);
+      const response = await axios.post("/api/auth/register", data);
       console.log(response);
-      if (response.status === 200) {
+      if (response.status === 201) {
         alert("Registration Successful");
-        navigate("/login");
+        const access_token = response.data.data.access_token;
+        const refresh_token = response.data.data.refresh_token;
+        localStorage.setItem('access_token', access_token)
+        localStorage.setItem('refresh_token', refresh_token)
+        navigate("/dashboard");
       }
       if (response.status === 400) {
         alert("Registration Failed");
@@ -89,7 +98,18 @@ function Signup() {
           </Typography>
           <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
             <div className="mb-1 flex flex-col gap-6">
-
+              <Typography variant="h6" color="blue-gray" className="-mb-3">
+                Your Username
+              </Typography>
+              <Input
+                size="lg"
+                placeholder="abc"
+                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+                onChange={(e) => setUsername(e.target.value)}
+              />
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Your Email
               </Typography>
@@ -129,24 +149,6 @@ function Signup() {
                 onChange={(e) => setconfirmpassword(e.target.value)}
               />
             </div>
-            <Checkbox
-              label={
-                <Typography
-                  variant="small"
-                  color="gray"
-                  className="flex items-center font-normal"
-                >
-                  I agree the
-                  <a
-                    href="#"
-                    className="font-medium transition-colors hover:text-gray-900"
-                  >
-                    &nbsp;Terms and Conditions
-                  </a>
-                </Typography>
-              }
-              containerProps={{ className: "-ml-2.5" }}
-            />
             <Button onClick={handleSubmit} className="mt-6 bg-purple-300 text-white hover:bg-purple-100 hover:text-black" fullWidth>
               Sign In
             </Button>
