@@ -2,6 +2,7 @@ import React from 'react';
 import Navbarcomponent from '../components/Navbarcomponent';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
+import FileUploadForm from '../components/FileUploadForm';
 
 const Dashboard = () => {
 
@@ -24,6 +25,9 @@ const Dashboard = () => {
 
                 <div>
                     <Sidebar />
+                </div>
+                <div className=' mx-32'>
+                    <FileUploadForm />
                 </div>
 
 
