@@ -86,6 +86,18 @@ export default function FileUploadForm() {
                         className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                     />
                     </div>
+
+                    <Typography variant="h6" color="blue-gray" className="-mb-3">
+                        Select File
+                    </Typography>
+                    <div className="w-72">
+                    <Input
+                        type="file"
+                        size="md"
+                        placeholder="Enter Publication Name"
+                        className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                    />
+                    </div>
                     
 
                 </div>
