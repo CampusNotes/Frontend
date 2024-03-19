@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router"
 import { Dashboard, Home, Login, Signup } from "./pages"
+import { FileUploadForm } from "./components"
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='/dashboard' element={<Dashboard />} />
+      <Route path='/fileupload' element={<FileUploadForm />} />
     </Routes>
   )
 }

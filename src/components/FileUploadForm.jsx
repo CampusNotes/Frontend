@@ -10,105 +10,107 @@ import {
 
 import { useState } from "react";
 
+import axios from "axios";
+
 export default function FileUploadForm() {
 
-    const [branch, setbranch] = useState("Information_Technology");
-    const [semester, setsemester] = useState("1");
+    const [branch, setBranch] = useState("Information_Technology");
+    const [semester, setSemester] = useState("1");
+    const [subject, setSubject] = useState('');
+    const [publication, setPublication] = useState('');
+    const [file, setFile] = useState(null);
+
+    const handleSubmit = async () => {
+
+
+        const fromdata = new FormData();
+
+        fromdata.append('branch', branch)
+        fromdata.append('semester', semester)
+        fromdata.append('subject', subject)
+        fromdata.append('publicationName', publication)
+        fromdata.append('file', file)
+
+        const response = await axios.post('/api/file/upload', fromdata)
+
+        console.log(response.data);
+
+    }
+
     return (
 
-        <Card color="transparent" shadow={false}>
-            <Typography variant="h4" color="blue-gray">
-                File Upload
-            </Typography>
-            <Typography color="gray" className="mt-1 font-normal">
-                Enter File Details..
-            </Typography>
-            <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
-                <div className="mb-1 flex flex-col gap-6">
+        <div className="bg-white p-4 rounded-lg">
+            <div className="w-full pb-2 border-b-2 border-b-purple-500">
+                <Typography variant="h4" className="text-purple-500">Upload File</Typography>
+            </div>
+            <div className="p-4">
+                <form className="w-full flex flex-col gap-5">
+                    <div className="grid grid-cols-2 gap-6">
+                        <div className="mb-1 flex flex-col gap-6">
+                            <Typography variant="h6" color="blue-gray" className="-mb-3">
+                                Branch
+                            </Typography>
+                            <Input
+                                size="lg"
+                                placeholder="username"
+                                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                                labelProps={{
+                                    className: "before:content-none after:content-none",
+                                }}
+                            />
+                            <Typography variant="h6" color="blue-gray" className="-mb-3">
+                                Semester
+                            </Typography>
+                            <Input
+                                size="lg"
+                                placeholder="username"
+                                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                                labelProps={{
+                                    className: "before:content-none after:content-none",
+                                }}
+                            />
+                        </div>
 
-                    <Typography variant="h6" color="blue-gray" className="-mb-3">
-                        Branch
-                    </Typography>
-                    <div className="w-72">
-                        <Select
-                            label="Select Version"
-                            value={branch}
-                            onChange={(val) => setbranch(val)}
-                        >
-                            <Option value="Information_Technology">Information Technology</Option>
-                            <Option value="Computer_Science">Computer Science</Option>
-                            <Option value="Electronics&Telecommunication">Electronics&Telecommunication</Option>
-                            {/* <Option value="angular">Material Tailwind Angular</Option>
-        <Option value="svelte">Material Tailwind Svelte</Option> */}
-                        </Select>
+                        <div className="mb-1 flex flex-col gap-6">
+                            <Typography variant="h6" color="blue-gray" className="-mb-3">
+                                Subject
+                            </Typography>
+                            <Input
+                                size="lg"
+                                placeholder="username"
+                                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                                labelProps={{
+                                    className: "before:content-none after:content-none",
+                                }}
+                            />
+
+                            <Typography variant="h6" color="blue-gray" className="-mb-3">
+                                Publication name
+                            </Typography>
+                            <Input
+                                size="lg"
+                                placeholder="username"
+                                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                                labelProps={{
+                                    className: "before:content-none after:content-none",
+                                }}
+                            />
+                        </div>
                     </div>
-
-
                     <Typography variant="h6" color="blue-gray" className="-mb-3">
-                        Semester
+                        Publication name
                     </Typography>
-                    <div className="w-72">
-                        <Select
-                            label="Select Version"
-                            value={semester}
-                            onChange={(val) => setsemester(val)}
-                        >
-                            <Option value="1">1</Option>
-                            <Option value="2">2</Option>
-                            <Option value="3">3</Option>
-                            <Option value="4">4</Option>
-                            <Option value="5">5</Option>
-                            <Option value="6">6</Option>
-                            <Option value="7">7</Option>
-                            <Option value="8">8</Option>
-                        </Select>
-                    </div>
-
-                    <Typography variant="h6" color="blue-gray" className="-mb-3">
-                        Subject
-                    </Typography>
-                    <div className="w-72">
                     <Input
-                        size="sm"
-                        placeholder="Enter Subject"
+                        size="lg"
+                        placeholder="username"
                         className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                        labelProps={{
+                            className: "before:content-none after:content-none",
+                        }}
                     />
-                    </div>
-                    
 
-                    <Typography variant="h6" color="blue-gray" className="-mb-3">
-                        Publication Name
-                    </Typography>
-                    <div className="w-72">
-                    <Input
-                        size="md"
-                        placeholder="Enter Publication Name"
-                        className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                    />
-                    </div>
-
-                    <Typography variant="h6" color="blue-gray" className="-mb-3">
-                        Select File
-                    </Typography>
-                    <div className="w-72">
-                    <Input
-                        type="file"
-                        size="md"
-                        placeholder="Enter Publication Name"
-                        className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                    />
-                    </div>
-                    
-
-                </div>
-                <div className="w-72">
-
-                <Button className="mt-6" fullWidth>
-                    Upload
-                </Button>
-                </div>
-
-            </form>
-        </Card>
+                </form>
+            </div>
+        </div>
     );
 }

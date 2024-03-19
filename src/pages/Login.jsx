@@ -13,12 +13,12 @@ import axios from "axios";
 
 function Login() {
 
-  const[email,setemail]= useState('');
-  const[password,setpassword]=useState('');
+  const [email, setemail] = useState('');
+  const [password, setpassword] = useState('');
   const navigate = useNavigate();
 
 
-  const handleSubmit= async()=>{
+  const handleSubmit = async () => {
 
     if (email === "") {
       alert("Email is required");
@@ -35,7 +35,7 @@ function Login() {
     };
 
     try {
-      const response = await axios.post("/api/v1/auth/login", data);
+      const response = await axios.post("/api/auth/login", data);
 
       console.log(response);
 
@@ -87,7 +87,7 @@ function Login() {
                   className: "before:content-none after:content-none",
                 }}
 
-                onChange={(e)=>setemail(e.target.value)}
+                onChange={(e) => setemail(e.target.value)}
               />
               <Typography variant="h6" color="blue-gray" className="-mb-3">
                 Password
@@ -100,7 +100,7 @@ function Login() {
                 labelProps={{
                   className: "before:content-none after:content-none",
                 }}
-                onChange={(e)=>setpassword(e.target.value)}
+                onChange={(e) => setpassword(e.target.value)}
               />
             </div>
             {/* <Checkbox
